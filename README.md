@@ -1,8 +1,6 @@
 # GEN-SCRAPER
 
 # 1. Introduction
-
-
 In the digital age, online reviews play a pivotal role in influencing consumer decisions. With the rise of AI-generated content, it has become increasingly challenging to distinguish between genuine and synthetic reviews. GEN-SCRAPER aims to address this issue by scraping Amazon reviews for a given product and analyzing the proportion of AI-generated content to ensure review originality.
 
 # 2. Aim
@@ -19,22 +17,38 @@ Label Encoding: Converting the label column to binary classes where AI-generated
 Data Shuffling: Shuffling the dataset to ensure a random distribution of data points for training and testing.
 
 # 5. Methodology
-
 The proposed system consists of two main components: 
 
 1. Model Training
-
 Vectorization: Using TfidfVectorizer to convert review texts into numerical feature vectors.
 Model Selection: An ExtraTreesClassifier is chosen for its robustness and effectiveness in handling text data.
 Training and Validation: Splitting the dataset into training and testing sets, followed by training the classifier and evaluating its performance using metrics like accuracy and F1-score.
 Model Saving: Saving the trained model and vectorizer for later use.
 
 2. Review Scraping and Analysis
-
 Setup Selenium WebDriver: The Selenium WebDriver is configured to run in headless mode, enabling automated browser interactions without a GUI.
 Scrape Amazon Reviews: The WebDriver navigates to the specified Amazon product page and extracts the review texts.
 Load Pre-trained Model: The pre-trained model and vectorizer are loaded to analyze the scraped reviews.
 Analyze Reviews: Each review is analyzed by the model to determine whether it is likely AI-generated or human-written.
+
+# 6. Run the GEN-SCRAPER in your system
+
+## Prequisites
+-Requires Chrome or Brave to run.
+
+-Download and install ChromeWebdriver from this link according to your browser version 
+
+https://googlechromelabs.github.io/chrome-for-testing/
+
+## Required libraries
+```
+pip install selenium
+pip install webdriver_manager
+```
+## Running the program
+To run the program, clone the repo and run the ```checkai-training.py``` to train the model or download the model from https://drive.google.com/file/d/1_XVUxU7LfeVZa3BcreH1rUv4wm6_qNeZ/view?usp=sharing and place it in the model folder.
+
+Then run the ```main.py``` for the main program execution.
 
 
 
